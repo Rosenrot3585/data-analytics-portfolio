@@ -11,7 +11,7 @@
   --background-color: #010409; /* azul oscuro */
   --card-background: #0D1117; /* gris oscuro */
   --text-color: #f7faff;
---secondary-text: #797F88;
+--secondary-text: #b1b1b3;
 }
 
 /* Animación de entrada */
@@ -46,6 +46,42 @@ body {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
 }
 
+.lang-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.lang-switch button {
+  background: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  margin-left: 5px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.lang-switch button:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.lang-switch button.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+.lang {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lang.visible {
+  opacity: 1;
+}
+
 header {
     text-align: center;
     margin-bottom: 50px;
@@ -61,6 +97,13 @@ h2 {
     font-size: 18px;
     color: var(--secondary-text);
     font-weight: 400;
+}
+
+.headline {
+  margin-top: 15px;
+  font-size: 15px;
+  color: var(--secondary-text);
+  text-align: center;
 }
 
 section {
@@ -132,6 +175,13 @@ section p + p {
   font-size: 15px;
   color: var(--secondary-text);
 }
+
+.card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 .icon {
   font-size: 22px;
   color: var(--primary-color);

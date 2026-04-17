@@ -10,16 +10,31 @@
 <body>
 
     <div class="container">
+        <div class="lang-switch">
+            <button onclick="setLanguage('es')">ES</button>
+            <button onclick="setLanguage('en')">EN</button>
+        </div>
 
         <header>
             <h1>Carmela Márquez</h1>
-            <h2>Foreign Trade & Financial Operations<br>Data Analytics for Business Insights</h2>
+            <h2 class="lang en">Foreign Trade & Financial Operations<br>Data Analytics for Business Insights</h2>
+            <h2 class="lang es">Comercio Exterior y Operaciones Financieras<br>Análisis de Datos aplicado al Negocio
+            </h2>
+
+            <p class="headline lang en">
+                Supporting international operations through financial expertise and data-driven analysis.
+            </p>
+
+            <p class="headline lang es">
+                Acompañando operaciones internacionales mediante experiencia financiera y análisis basado en datos.
+            </p>
             <hr>
         </header>
 
         <section>
-            <h3>About</h3>
-            <p>
+            <h3 class="lang en">About</h3>
+
+            <p class="lang en">
                 Professional with +8 years of experience in international trade and financial operations.
                 Extensive experience managing international payments, working with financial institutions and ensuring
                 regulatory compliance in complex environments.
@@ -28,80 +43,151 @@
                 Bringing together operational expertise and analytical thinking to better understand financial and trade
                 processes.
             </p>
+
+            <h3 class="lang es">SOBRE MI</h3>
+            <p class="lang es">
+                Profesional con más de 8 años de experiencia en comercio exterior y operaciones financieras.
+                Amplia experiencia en gestión de pagos internacionales, interacción con entidades financieras y
+                cumplimiento normativo en entornos complejos.
+                Actualmente incorporando herramientas de análisis de datos para comprender mejor los procesos,
+                identificar patrones y apoyar la toma de decisiones.
+                Integrando experiencia operativa con pensamiento analítico para optimizar procesos financieros y de
+                comercio exterior.
+            </p>
         </section>
 
         <section>
             <h3>Portfolio</h3>
-            <p>
-                    Projects focused on applying data analysis to real-world economic, financial and operational
-                    scenarios.
+            <p class="lang en">
+                Projects focused on applying data analysis to real-world economic, financial and operational scenarios.
+            </p>
+
+            <p class="lang es">
+                Proyectos enfocados en aplicar análisis de datos a escenarios reales económicos, financieros y
+                operativos.
             </p>
             <div class="projects">
-                
+
                 <div class="card">
-                    <span class="icon">🌍</span>
-                    <h4>Global Development</h4>
-                    <p>GDP vs Life Expectancy analysis across regions</p>
+                    <a href="https://nbviewer.org/github/rosenrot3585/data-analytics-portfolio/blob/main/gdp_and_life_expectation.py"
+                        target="_blank">
+                        <span class="icon">🌍</span>
+                        <h4>Global Development</h4>
+                        <p class="lang en">GDP vs Life Expectancy analysis across regions</p>
+                        <p class="lang es">Análisis de la relación entre PBI y esperanza de vida por región</p>
+                    </a>
                 </div>
 
                 <div class="card">
-                    <span class="icon">🇦🇷</span>
-                    <h4>Trade Balance</h4>
-                    <p>Argentina exports, imports and trade trends</p>
+                    <a href="https://nbviewer.org/github.com/Rosenrot3585/data-analytics-portfolio/blob/main/simulation_argentina_trade_balance_analysis.p"
+                        target="_blank">
+                        <span class="icon">🇦🇷</span>
+                        <h4>Trade Balance</h4>
+                        <p class="lang en">Argentina exports, imports and trade trends</p>
+                        <p class="lang es">Análisis de exportaciones, importaciones y tendencias del comercio exterior
+                            argentino</p>
+                    </a>
                 </div>
 
                 <div class="card">
-                    <span class="icon">💳</span>
-                    <h4>Transaction Analysis</h4>
-                    <p>Detection of anomalies in transaction data</p>
+                    <a href="https://nbviewer.org/github/rosenrot3585/data-analytics-portfolio/blob/main/transactions_detecting_patterns_and_anomalies.py"
+                        target="_blank">
+                        <span class="icon">💳</span>
+                        <h4>Transaction Analysis</h4>
+                        <p class="lang en">Detection of anomalies in transaction data</p>
+                        <p class="lang es">Detección de anomalías en datos de transacciones</p>
+                    </a>
                 </div>
 
             </div>
-            <p>
-                👉 <a href="https://github.com/TU_USUARIO/data-analytics-portfolio" target="_blank">
+            <p class="lang en">
+                👉 <a href="https://github.com/Rosenrot3585/data-analytics-portfolio" target="_blank">
                     View my projects on GitHub
+                </a>
+            </p>
+            <p class="lang es">
+                👉 <a href="https://github.com/Rosenrot3585/data-analytics-portfolio" target="_blank">
+                    Ver mis proyectos en GitHub
                 </a>
             </p>
         </section>
 
 
         <section>
-            <h3>Expertise</h3>
-            <p><strong>International Trade & Financial Operations</strong><br>
-                International payments, banking coordination, regulatory compliance</p>
-            <p><strong>Analytical Approach</strong><br>
-                Data analysis with Python, process understanding and business insights</p>
+            <h3 class="lang en">Expertise</h3>
+
+            <p class="lang en">
+                <strong>International Trade & Financial Operations</strong><br>
+                International payments, banking coordination, regulatory compliance
+            </p>
+
+            <h3 class="lang es">Habilidades</h3>
+            <p class="lang es">
+                <strong>Comercio Exterior y Operaciones Financieras</strong><br>
+                Pagos internacionales, coordinación bancaria y cumplimiento normativo
+            </p>
+
+            <p class="lang en">
+                <strong>Analytical Approach</strong><br>
+                Data analysis with Python, process understanding and business insights
+            </p>
+
+            <p class="lang es">
+                <strong>Enfoque Analítico</strong><br>
+                Análisis de datos con Python, comprensión de procesos y generación de insights de negocio
+            </p>
         </section>
 
         <section>
-            <h3>Experience</h3>
+            <h3 class="lang en">Experience</h3>
+            <h3 class="lang es">Experiencia</h3>
 
             <div class="experience">
 
                 <div class="exp-card">
                     <h4>INVAP</h4>
-                    <span>International Trade Analyst</span>
-                    <p>
+                    <span class="lang en">International Trade Analyst</span>
+                    <span class="lang es">Analista de Comercio Exterior</span>
+
+                    <p class="lang en">
                         International payments, banking coordination and FX compliance.
                         Support across complex projects and financial operations.
+                    </p>
+
+                    <p class="lang es">
+                        Gestión de pagos internacionales, coordinación bancaria y cumplimiento cambiario.
+                        Soporte en proyectos complejos y operaciones financieras.
                     </p>
                 </div>
 
                 <div class="exp-card">
                     <h4>Argul / Libus</h4>
-                    <span>Foreign Trade Operations</span>
-                    <p>
-                        Import coordination, customs brokers interaction and LATAM operations
-                        including Mexico and Brazil.
+                    <span class="lang en">Foreign Trade Operations</span>
+                    <span class="lang es">Operaciones de Comercio Exterior</span>
+
+                    <p class="lang en">
+                        Import coordination, customs brokers interaction and LATAM operations including Mexico and
+                        Brazil.
+                    </p>
+
+                    <p class="lang es">
+                        Coordinación de importaciones, interacción con despachantes de aduana y operaciones en LATAM
+                        incluyendo México y Brasil.
                     </p>
                 </div>
 
                 <div class="exp-card">
                     <h4>Citi</h4>
-                    <span>Banking Operations</span>
-                    <p>
-                        Financial operations support, transaction handling and exposure to
-                        banking processes.
+                    <span class="lang en">Banking Operations</span>
+                    <span class="lang es">Operaciones Bancarias</span>
+
+                    <p class="lang en">
+                        Financial operations support, transaction handling and exposure to banking processes.
+                    </p>
+
+                    <p class="lang es">
+                        Soporte en operaciones financieras, gestión de transacciones y experiencia en procesos
+                        bancarios.
                     </p>
                 </div>
 
@@ -109,19 +195,25 @@
         </section>
 
         <section>
-            <h3>Contact</h3>
+            <h3 class="lang en">Contact</h3>
+            <h3 class="lang es">Contacto</h3>
             <p>
                 LinkedIn: <a href="https://www.linkedin.com/in/mcmp3585/" target="_blank">mcmp3585</a><br>
             </p>
         </section>
 
         <section>
-            <p class="closing">
+            <p class="closing lang en">
                 Focused on combining business understanding with data analysis to generate meaningful insights.
+            </p>
+
+            <p class="closing lang es">
+                Enfocada en combinar conocimiento de negocio con análisis de datos para generar insights relevantes.
             </p>
         </section>
     </div>
 
+    <script src="js/script.js"></script>
 </body>
 
 </html>
