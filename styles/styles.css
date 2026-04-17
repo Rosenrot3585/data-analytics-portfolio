@@ -5,12 +5,6 @@
   box-sizing: border-box;
   border: 0; }
 
-  /*COMMON STYLES*/
-html {
-  font-size: 62.5%;
-  /* cambiamos la etiqueta raiz, y ahora se cuenta de 10px en 10px. */ 
-}
-
   /*Variables*/
 :root {
   --primary-color: #8957E5; /* violeta */
@@ -81,8 +75,9 @@ h3 {
 }
 
 p {
-    line-height: 1.6;
     color: var(--secondary-text);
+    line-height: 1.7;
+    font-size: 16px;
 }
 
 ul {
@@ -136,7 +131,7 @@ hr {
 }
 
 .card p {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--secondary-text);
 }
 .icon {
@@ -174,6 +169,14 @@ hr {
 
 .exp-card p {
   margin-top: 10px;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--secondary-text);
+}
+
+.closing {
+  text-align: center;
+  color: var(--secondary-text);
+  margin-top: 40px;
+  font-size: 14px;
+  opacity: 0.8;
 }
