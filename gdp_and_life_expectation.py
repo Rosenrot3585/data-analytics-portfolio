@@ -19,9 +19,20 @@ Se utiliza el dataset público de la página https://raw.githubusercontent.com/r
 
 #Importar librerías
 import pandas as pd
-import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
+import matplotlib.ticker as mticker
+
+sns.set_theme(style="whitegrid",
+              palette="muted")
+plt.rcParams.update({
+    "figure.dpi": 150,
+    "axes.titlesize": 13,
+    "axes.titleweight": "bold",
+    "axes.labelsize": 11,
+    "axes.spines.top": False,
+    "axes.spines.right": False,
+})
 
 #Carga de Datos
 url = "https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv"
@@ -31,13 +42,21 @@ df.head()
 """##🟣 4. Limpieza de datos"""
 
 #Limpieza de Datos:
-df.info()
-df.describe()
+print(f"Shape: {df.shape}")
+print(f"Missing values:\n{df.isnull().sum()}")
+print(f"Years covered: "
+      f"{df['year'].min()}–"
+      f"{df['year'].max()}")
+print(f"Countries: "
+      f"{df['country'].nunique()}")
 
-# Ejemplo limpieza
+rows_before = len(df)
 df = df.dropna()
+rows_after = len(df)
+print(f"Rows removed: "
+      f"{rows_before - rows_after}")
 
-#Data was cleaned by removing missing values to ensure consistency.
+#Limpieza de datos: Eliminados valores faltantes para asegurar consistencia de datos.
 
 """*Data was cleaned by removing missing values to ensure consistency.*
 
@@ -49,24 +68,93 @@ df.groupby('continent')['gdpPercap'].mean()
 
 """##🟣 6. Visualizaciones"""
 
-sns.boxplot(x='continent', y='gdpPercap', data=df)
-plt.xticks(rotation=45)
-plt.show()
-sns.scatterplot(x='gdpPercap', y='lifeExp', hue='continent', data=df)
+fig, ax = plt.subplots(figsize=(9, 5))
+
+continent_order = (df.groupby("continent")
+                   ["gdpPercap"].median()
+                   .sort_values(ascending=False)
+                   .index)
+
+sns.boxplot(x="continent",
+            y="gdpPercap",
+            order=continent_order,
+            data=df,
+            ax=ax)
+
+ax.set_title(
+  "GDP per capita by continent\n"
+  "1952–2007, all countries",
+  pad=12)
+ax.set_xlabel("Continent")
+ax.set_ylabel("GDP per capita (USD)")
+ax.yaxis.set_major_formatter(
+  mticker.FuncFormatter(
+    lambda x, _: f"${x:,.0f}"))
+ax.tick_params(axis="x", rotation=30)
+
+plt.tight_layout()
+plt.savefig("01_gdp_by_continent.png",
+            dpi=150, bbox_inches="tight")
 plt.show()
 
-df[['gdpPercap', 'lifeExp']].corr()
-sns.lmplot(x='gdpPercap', y='lifeExp', data=df)
+fig, ax = plt.subplots(figsize=(9, 6))
+
+sns.scatterplot(x="gdpPercap",
+               y="lifeExp",
+               hue="continent",
+               size="pop",
+               sizes=(20, 300),
+               alpha=0.6,
+               data=df,
+               ax=ax)
+
+ax.set_title(
+  "GDP per capita vs. life expectancy\n"
+  "Bubble size = population",
+  pad=12)
+ax.set_xlabel("GDP per capita (USD, log scale)")
+ax.set_ylabel("Life expectancy (years)")
+ax.set_xscale("log")
+ax.xaxis.set_major_formatter(
+  mticker.FuncFormatter(
+    lambda x, _: f"${x:,.0f}"))
+
+corr = df[["gdpPercap", "lifeExp"]].corr()
+r = corr.loc["gdpPercap", "lifeExp"]
+
+ax.annotate(f"Pearson r = {r:.2f}",
+            xy=(0.05, 0.92),
+            xycoords="axes fraction",
+            fontsize=10,
+            color="dimgray")
+
+plt.tight_layout()
+plt.savefig("02_gdp_vs_lifeexp.png", dpi=150, bbox_inches="tight")
+plt.show()
 
 """↗  *There is a positive correlation between GDP and life expectancy*
 
 ##🟣 7. Insights
+"""
 
-- Countries with higher GDP per capita tend to have higher life expectancy
-- Africa shows lower GDP and lower life expectancy compared to other regions
-- Europe and Americas present higher development indicators
+top_gdp = (df.groupby("continent")["gdpPercap"]
+           .median()
+           .idxmax())
 
-##🟣 8. Conclusion
+top_life = (df.groupby("continent")["lifeExp"]
+            .median()
+            .idxmax())
+
+gap = (df[df.continent == "Europe"]["lifeExp"].median()
+       - df[df.continent == "Africa"]["lifeExp"].median())
+
+print("=== KEY INSIGHTS ===")
+print(f"Highest median GDP per capita: {top_gdp}")
+print(f"Highest median life expectancy: {top_life}")
+print(f"Europe vs. Africa life expectancy gap: {gap:.1f} years")
+print(f"Pearson correlation (r = {r:.3f}): strong positive relationship")
+
+"""##🟣 8. Conclusion
 
 This analysis shows a clear relationship between economic development and life expectancy. Higher GDP per capita is generally associated with better living conditions and longer life expectancy, highlighting global inequalities between regions.
 """
