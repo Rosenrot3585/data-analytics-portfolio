@@ -3,15 +3,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: 0; }
+  border: 0;
+}
 
-  /*Variables*/
+/*Variables*/
 :root {
-  --primary-color: #8957E5; /* violeta */
-  --background-color: #010409; /* azul oscuro */
-  --card-background: #0D1117; /* gris oscuro */
+  --primary-color: #8957E5;
+  /* violeta */
+  --background-color: #010409;
+  /* azul oscuro */
+  --card-background: #0D1117;
+  /* gris oscuro */
   --text-color: #f7faff;
---secondary-text: #b1b1b3;
+  --secondary-text: #b1b1b3;
 }
 
 /* Animación de entrada */
@@ -24,26 +28,28 @@
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 body {
-    font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
-    background: linear-gradient(180deg, #0D1117, #010409);
-    color: var(--text-color);
-    margin: 0;
-    font-size: 16px;
+  font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+  background: linear-gradient(180deg, #0D1117, #010409);
+  color: var(--text-color);
+  margin: 0;
+  font-size: 16px;
 }
 
 .container {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 40px;
-    background: var(--card-background);
-    border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px;
+  background: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
 }
 
 .lang-switch {
@@ -83,20 +89,20 @@ body {
 }
 
 header {
-    text-align: center;
-    margin-bottom: 50px;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
 h1 {
-    font-size: 34px;
-    margin-bottom: 5px;
-    letter-spacing: -0.5px;
+  font-size: 34px;
+  margin-bottom: 5px;
+  letter-spacing: -0.5px;
 }
 
 h2 {
-    font-size: 18px;
-    color: var(--secondary-text);
-    font-weight: 400;
+  font-size: 18px;
+  color: var(--secondary-text);
+  font-weight: 400;
 }
 
 .headline {
@@ -107,44 +113,46 @@ h2 {
 }
 
 section {
-    margin-bottom: 60px;
+  margin-bottom: 60px;
 }
 
 h3 {
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--primary-color);
-    margin-bottom: 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--primary-color);
+  margin-bottom: 20px;
 }
 
 p {
-    color: var(--secondary-text);
-    line-height: 1.7;
-    font-size: 16px;
-    margin-bottom: 16px;
+  color: var(--secondary-text);
+  line-height: 1.7;
+  font-size: 16px;
+  margin-bottom: 16px;
 }
 
 a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
 }
 
 a:hover {
-    color: #8957E5;
-    text-decoration: underline;
+  color: #8957E5;
+  text-decoration: underline;
 }
 
 hr {
-    border: none;
-    height: 1px;
-    background: var(--secondary-text);
-    margin: 30px 0;
+  border: none;
+  height: 1px;
+  background: var(--secondary-text);
+  margin: 30px 0;
 }
-section p + p {
+
+section p+p {
   margin-top: 10px;
 }
+
 /* Proyectos más elegantes */
 .projects {
   display: grid;
@@ -186,6 +194,7 @@ section p + p {
   font-size: 22px;
   color: var(--primary-color);
 }
+
 .experience {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -228,4 +237,79 @@ section p + p {
   color: var(--secondary-text);
   font-size: 14px;
   opacity: 0.8;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+
+/* Tablet: 600px – 768px */
+@media (max-width: 768px) {
+  .container {
+    margin: 20px;
+    padding: 28px 24px;
+    border-radius: 10px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  h3 {
+    font-size: 13px;
+  }
+  /* En tablet las cards bajan a 2 columnas automáticamente con auto-fit */
+}
+
+/* Mobile: hasta 480px — una sola columna */
+@media (max-width: 480px) {
+  body {
+    font-size: 15px;
+  }
+
+  .container {
+    margin: 0;
+    padding: 24px 18px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 15px;
+  }
+
+  .headline {
+    font-size: 14px;
+  }
+
+  section {
+    margin-bottom: 40px;
+  }
+
+  /* Cards en columna única en mobile */
+  .projects,
+  .experience {
+    grid-template-columns: 1fr;
+  }
+
+  .card,
+  .exp-card {
+    padding: 18px;
+  }
+
+  /* El hover con transform puede ser molesto en touch — lo desactivamos */
+  .card:hover,
+  .exp-card:hover {
+    transform: none;
+  }
+
+  p {
+    font-size: 15px;
+  }
 }
