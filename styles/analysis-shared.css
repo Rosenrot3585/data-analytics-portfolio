@@ -1,0 +1,261 @@
+/* ============================================================
+   analysis-shared.css
+   Shared styles for all analysis/notebook HTML pages
+   Portfolio: Carmela Márquez — rosenrot3585.github.io
+   ============================================================ */
+
+:root {
+  --bg:       #010409;
+  --surface:  #0D1117;
+  --border:   #21262d;
+  --purple:   #8957E5;
+  --text:     #e6edf3;
+  --muted:    #8b949e;
+  --accent:   var(--page-accent, #8957E5);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ── Top bar ── */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(1,4,9,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.back-link {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+.back-link:hover { color: var(--text); }
+.back-link svg { width: 14px; height: 14px; fill: currentColor; }
+
+.topbar-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.github-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.github-btn:hover { border-color: var(--purple); color: var(--text); }
+.github-btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+/* ── Hero ── */
+.hero {
+  padding: 60px 40px 40px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.hero-meta span {
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pill {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ── Main content ── */
+.content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+}
+
+/* Markdown sections */
+.nb-markdown {
+  margin: 28px 0;
+  color: var(--muted);
+}
+
+.nb-markdown h1 { display: none; } /* title already in hero */
+
+.nb-markdown h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--text);
+  margin: 40px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.nb-markdown h3 {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 32px 0 10px;
+}
+
+.nb-markdown p {
+  color: var(--muted);
+  margin-bottom: 12px;
+  font-size: 15.5px;
+}
+
+.nb-markdown ul, .nb-markdown ol {
+  padding-left: 20px;
+  color: var(--muted);
+  font-size: 15.5px;
+}
+
+.nb-markdown li {
+  margin-bottom: 6px;
+}
+
+.nb-markdown strong { color: var(--text); font-weight: 500; }
+
+.nb-markdown a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.nb-markdown a:hover { text-decoration: underline; }
+
+/* Charts */
+.chart-container {
+  margin: 32px 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  text-align: center;
+}
+
+.chart-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* Text outputs (KEY INSIGHTS) */
+.nb-output {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 20px;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
+/* ── Footer ── */
+.page-footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 40px;
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.page-footer p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.page-footer a {
+  color: var(--purple);
+  text-decoration: none;
+}
+.page-footer a:hover { text-decoration: underline; }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .topbar { padding: 12px 18px; }
+  .hero { padding: 36px 18px 24px; }
+  .content { padding: 0 18px 60px; }
+  .page-footer { padding: 24px 18px; }
+  .topbar-title { display: none; }
+}
